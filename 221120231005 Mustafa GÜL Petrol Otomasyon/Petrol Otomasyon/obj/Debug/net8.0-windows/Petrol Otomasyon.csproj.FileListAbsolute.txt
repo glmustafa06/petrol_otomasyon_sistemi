@@ -1,0 +1,89 @@
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.exe
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.dll
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.csproj.AssemblyReference.cache
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.Form1.resources
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.YöneticiEkrani.resources
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.csproj.GenerateResource.cache
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.AssemblyInfoInputs.cache
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.AssemblyInfo.cs
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.csproj.CoreCompileInputs.cache
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol O.F11AC587.Up2Date
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.dll
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\refint\Petrol Otomasyon.dll
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.pdb
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.deps.json
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.runtimeconfig.json
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.pdb
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.genruntimeconfig.cache
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\ref\Petrol Otomasyon.dll
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\PetrolOtomasyonSistemi.ŞubeYonetimi.resources
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.YakıtTalepOnayı.resources
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.RaporEkrani.resources
+C:\Users\pc.DESKTOP-GE9UJQI\source\repos\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.SubeYoneticiEkrani.resources
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.exe
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.deps.json
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.runtimeconfig.json
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.dll
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.pdb
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.csproj.AssemblyReference.cache
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.Form1.resources
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.RaporEkrani.resources
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.SubeYoneticiEkrani.resources
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.YakıtTalepOnayı.resources
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.YöneticiEkrani.resources
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\PetrolOtomasyonSistemi.ŞubeYonetimi.resources
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.csproj.GenerateResource.cache
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.AssemblyInfoInputs.cache
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.AssemblyInfo.cs
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.csproj.CoreCompileInputs.cache
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol O.F11AC587.Up2Date
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.dll
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\refint\Petrol Otomasyon.dll
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.pdb
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.genruntimeconfig.cache
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\ref\Petrol Otomasyon.dll
+C:\Users\pc.DESKTOP-GE9UJQI\Desktop\projeler\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.PompaciEkrani.resources
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.exe
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.deps.json
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.runtimeconfig.json
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.dll
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\Petrol Otomasyon.pdb
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.csproj.AssemblyReference.cache
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.Form1.resources
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.PompaciEkrani.resources
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.RaporEkrani.resources
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.SubeYoneticiEkrani.resources
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.YakıtTalepOnayı.resources
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol_Otomasyon.YöneticiEkrani.resources
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\PetrolOtomasyonSistemi.ŞubeYonetimi.resources
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.csproj.GenerateResource.cache
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.AssemblyInfoInputs.cache
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.AssemblyInfo.cs
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.csproj.CoreCompileInputs.cache
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol O.F11AC587.Up2Date
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.dll
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\refint\Petrol Otomasyon.dll
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.pdb
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\Petrol Otomasyon.genruntimeconfig.cache
+c:\Users\pc.DESKTOP-GE9UJQI\Desktop\Petrol Otomasyon\Petrol Otomasyon\obj\Debug\net8.0-windows\ref\Petrol Otomasyon.dll

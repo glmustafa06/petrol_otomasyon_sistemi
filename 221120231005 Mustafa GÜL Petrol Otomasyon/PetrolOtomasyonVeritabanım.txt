@@ -1,0 +1,443 @@
+USE [master]
+GO
+/****** Object:  Database [PetrolOtomasyon]    Script Date: 2.01.2025 18:22:44 ******/
+CREATE DATABASE [PetrolOtomasyon]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'PetrolOtomasyon', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\PetrolOtomasyon.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'PetrolOtomasyon_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\PetrolOtomasyon_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [PetrolOtomasyon] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [PetrolOtomasyon].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [PetrolOtomasyon] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET RECOVERY FULL 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET  MULTI_USER 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [PetrolOtomasyon] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [PetrolOtomasyon] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'PetrolOtomasyon', N'ON'
+GO
+ALTER DATABASE [PetrolOtomasyon] SET QUERY_STORE = ON
+GO
+ALTER DATABASE [PetrolOtomasyon] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [PetrolOtomasyon]
+GO
+/****** Object:  Table [dbo].[Calisanlar]    Script Date: 2.01.2025 18:22:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Calisanlar](
+	[CalisanID] [int] IDENTITY(1,1) NOT NULL,
+	[Adi] [nvarchar](100) NOT NULL,
+	[Soyadi] [nvarchar](100) NOT NULL,
+	[SubeID] [int] NULL,
+	[Pozisyon] [nvarchar](100) NULL,
+	[YillikIzin] [int] NULL,
+	[YoneticiMi] [bit] NULL,
+	[Maas] [decimal](10, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CalisanID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Islemler]    Script Date: 2.01.2025 18:22:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Islemler](
+	[IslemID] [int] IDENTITY(1,1) NOT NULL,
+	[IslemTarihi] [datetime] NOT NULL,
+	[IslemTuru] [nvarchar](50) NOT NULL,
+	[YakitID] [int] NULL,
+	[Miktar] [decimal](10, 2) NOT NULL,
+	[Fiyat] [decimal](10, 2) NOT NULL,
+	[SubeID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IslemID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Kullanici]    Script Date: 2.01.2025 18:22:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Kullanici](
+	[KullaniciID] [int] IDENTITY(1,1) NOT NULL,
+	[KullaniciAdi] [nvarchar](100) NOT NULL,
+	[Sifre] [nvarchar](255) NOT NULL,
+	[Rol] [nvarchar](50) NOT NULL,
+	[SubeID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[KullaniciID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Subeler]    Script Date: 2.01.2025 18:22:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Subeler](
+	[SubeID] [int] IDENTITY(1,1) NOT NULL,
+	[SubeAdi] [nvarchar](100) NOT NULL,
+	[Sehir] [nvarchar](100) NOT NULL,
+	[Ilce] [nvarchar](100) NOT NULL,
+	[CalisanSayisi] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SubeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SubePerformansi]    Script Date: 2.01.2025 18:22:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SubePerformansi](
+	[SubeID] [int] NOT NULL,
+	[ToplamIslem] [int] NULL,
+	[ToplamMiktar] [decimal](18, 2) NULL,
+	[Ciro] [decimal](18, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SubeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[YakıtTalep]    Script Date: 2.01.2025 18:22:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[YakıtTalep](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[TalepTarihi] [datetime] NULL,
+	[Miktar] [decimal](18, 2) NULL,
+	[Durum] [varchar](50) NULL,
+	[SubeID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Yakitlar]    Script Date: 2.01.2025 18:22:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Yakitlar](
+	[YakitID] [int] IDENTITY(1,1) NOT NULL,
+	[YakitAdi] [nvarchar](100) NOT NULL,
+	[Fiyat] [decimal](10, 2) NOT NULL,
+	[SubeID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[YakitID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[YakitStok]    Script Date: 2.01.2025 18:22:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[YakitStok](
+	[SubeID] [int] NOT NULL,
+	[YakitID] [int] NOT NULL,
+	[Miktar] [decimal](18, 2) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SubeID] ASC,
+	[YakitID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Calisanlar] ON 
+
+INSERT [dbo].[Calisanlar] ([CalisanID], [Adi], [Soyadi], [SubeID], [Pozisyon], [YillikIzin], [YoneticiMi], [Maas]) VALUES (3, N'Ahmet', N'Yılmaz', 7, N'Yönetici', 30, 1, CAST(15000.00 AS Decimal(10, 2)))
+INSERT [dbo].[Calisanlar] ([CalisanID], [Adi], [Soyadi], [SubeID], [Pozisyon], [YillikIzin], [YoneticiMi], [Maas]) VALUES (4, N'Ayşe', N'Demir', 7, N'Pompacı', 14, 0, CAST(5000.00 AS Decimal(10, 2)))
+INSERT [dbo].[Calisanlar] ([CalisanID], [Adi], [Soyadi], [SubeID], [Pozisyon], [YillikIzin], [YoneticiMi], [Maas]) VALUES (5, N'Mehmet', N'Kaya', 8, N'Yönetici', 30, 1, CAST(14000.00 AS Decimal(10, 2)))
+INSERT [dbo].[Calisanlar] ([CalisanID], [Adi], [Soyadi], [SubeID], [Pozisyon], [YillikIzin], [YoneticiMi], [Maas]) VALUES (6, N'Fatma', N'Çelik', 8, N'Pompacı', 14, 0, CAST(4800.00 AS Decimal(10, 2)))
+INSERT [dbo].[Calisanlar] ([CalisanID], [Adi], [Soyadi], [SubeID], [Pozisyon], [YillikIzin], [YoneticiMi], [Maas]) VALUES (7, N'Ali', N'Şahin', 9, N'Yönetici', 30, 1, CAST(13500.00 AS Decimal(10, 2)))
+INSERT [dbo].[Calisanlar] ([CalisanID], [Adi], [Soyadi], [SubeID], [Pozisyon], [YillikIzin], [YoneticiMi], [Maas]) VALUES (8, N'Zeynep', N'Kara', 9, N'Pompacı', 14, 0, CAST(4700.00 AS Decimal(10, 2)))
+INSERT [dbo].[Calisanlar] ([CalisanID], [Adi], [Soyadi], [SubeID], [Pozisyon], [YillikIzin], [YoneticiMi], [Maas]) VALUES (9, N'Mustafa', N'Aydın', 10, N'Yönetici', 30, 1, CAST(13000.00 AS Decimal(10, 2)))
+INSERT [dbo].[Calisanlar] ([CalisanID], [Adi], [Soyadi], [SubeID], [Pozisyon], [YillikIzin], [YoneticiMi], [Maas]) VALUES (10, N'Elif', N'Yıldız', 10, N'Pompacı', 14, 0, CAST(4600.00 AS Decimal(10, 2)))
+INSERT [dbo].[Calisanlar] ([CalisanID], [Adi], [Soyadi], [SubeID], [Pozisyon], [YillikIzin], [YoneticiMi], [Maas]) VALUES (11, N'Emre', N'Tekin', 11, N'Yönetici', 30, 1, CAST(12500.00 AS Decimal(10, 2)))
+INSERT [dbo].[Calisanlar] ([CalisanID], [Adi], [Soyadi], [SubeID], [Pozisyon], [YillikIzin], [YoneticiMi], [Maas]) VALUES (12, N'Cem', N'Büyük', 11, N'Pompacı', 14, 0, CAST(4500.00 AS Decimal(10, 2)))
+SET IDENTITY_INSERT [dbo].[Calisanlar] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Subeler] ON 
+
+INSERT [dbo].[Subeler] ([SubeID], [SubeAdi], [Sehir], [Ilce], [CalisanSayisi]) VALUES (7, N'Merkez Şube', N'İstanbul', N'Kadıköy', 20)
+INSERT [dbo].[Subeler] ([SubeID], [SubeAdi], [Sehir], [Ilce], [CalisanSayisi]) VALUES (8, N'Ankara Şube', N'Ankara', N'Çankaya', 15)
+INSERT [dbo].[Subeler] ([SubeID], [SubeAdi], [Sehir], [Ilce], [CalisanSayisi]) VALUES (9, N'İzmir Şube', N'İzmir', N'Konak', 12)
+INSERT [dbo].[Subeler] ([SubeID], [SubeAdi], [Sehir], [Ilce], [CalisanSayisi]) VALUES (10, N'Bursa Şube', N'Bursa', N'Osmangazi', 10)
+INSERT [dbo].[Subeler] ([SubeID], [SubeAdi], [Sehir], [Ilce], [CalisanSayisi]) VALUES (11, N'Antalya Şube', N'Antalya', N'Muratpaşa', 8)
+SET IDENTITY_INSERT [dbo].[Subeler] OFF
+GO
+INSERT [dbo].[SubePerformansi] ([SubeID], [ToplamIslem], [ToplamMiktar], [Ciro]) VALUES (7, 200, CAST(5000.00 AS Decimal(18, 2)), CAST(200000.00 AS Decimal(18, 2)))
+INSERT [dbo].[SubePerformansi] ([SubeID], [ToplamIslem], [ToplamMiktar], [Ciro]) VALUES (8, 150, CAST(4000.00 AS Decimal(18, 2)), CAST(150000.00 AS Decimal(18, 2)))
+INSERT [dbo].[SubePerformansi] ([SubeID], [ToplamIslem], [ToplamMiktar], [Ciro]) VALUES (9, 180, CAST(4500.00 AS Decimal(18, 2)), CAST(180000.00 AS Decimal(18, 2)))
+INSERT [dbo].[SubePerformansi] ([SubeID], [ToplamIslem], [ToplamMiktar], [Ciro]) VALUES (10, 130, CAST(3500.00 AS Decimal(18, 2)), CAST(130000.00 AS Decimal(18, 2)))
+INSERT [dbo].[SubePerformansi] ([SubeID], [ToplamIslem], [ToplamMiktar], [Ciro]) VALUES (11, 160, CAST(4200.00 AS Decimal(18, 2)), CAST(160000.00 AS Decimal(18, 2)))
+GO
+SET IDENTITY_INSERT [dbo].[YakıtTalep] ON 
+
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (1, CAST(N'2024-12-24T20:37:01.880' AS DateTime), CAST(61.00 AS Decimal(18, 2)), N'Reddedildi', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (2, CAST(N'2024-11-25T20:37:01.907' AS DateTime), CAST(24.00 AS Decimal(18, 2)), N'Onaylandı', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (3, CAST(N'2024-12-27T20:37:01.910' AS DateTime), CAST(19.00 AS Decimal(18, 2)), N'Reddedildi', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (4, CAST(N'2025-01-07T20:37:01.910' AS DateTime), CAST(84.00 AS Decimal(18, 2)), N'Onaylandı', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (5, CAST(N'2025-01-06T20:37:01.913' AS DateTime), CAST(96.00 AS Decimal(18, 2)), N'Reddedildi', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (6, CAST(N'2024-12-17T20:37:01.913' AS DateTime), CAST(95.00 AS Decimal(18, 2)), N'Reddedildi', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (7, CAST(N'2024-12-13T20:37:01.913' AS DateTime), CAST(96.00 AS Decimal(18, 2)), N'Reddedildi', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (8, CAST(N'2024-12-30T20:37:01.913' AS DateTime), CAST(99.00 AS Decimal(18, 2)), N'Reddedildi', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (9, CAST(N'2024-12-04T20:37:01.913' AS DateTime), CAST(43.00 AS Decimal(18, 2)), N'Reddedildi', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (10, CAST(N'2025-01-07T20:37:01.913' AS DateTime), CAST(85.00 AS Decimal(18, 2)), N'Onaylandı', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (11, CAST(N'2024-12-02T20:43:46.107' AS DateTime), CAST(46.00 AS Decimal(18, 2)), N'Onaylandı', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (12, CAST(N'2024-12-18T20:43:46.137' AS DateTime), CAST(55.00 AS Decimal(18, 2)), N'Reddedildi', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (13, CAST(N'2024-12-29T20:43:46.137' AS DateTime), CAST(23.00 AS Decimal(18, 2)), N'Onaylandı', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (14, CAST(N'2025-01-07T20:43:46.137' AS DateTime), CAST(32.00 AS Decimal(18, 2)), N'Onaylandı', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (15, CAST(N'2024-11-25T20:43:46.137' AS DateTime), CAST(85.00 AS Decimal(18, 2)), N'Reddedildi', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (16, CAST(N'2024-11-16T20:43:46.140' AS DateTime), CAST(12.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (17, CAST(N'2024-12-12T20:43:46.140' AS DateTime), CAST(88.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (18, CAST(N'2024-11-21T20:43:46.140' AS DateTime), CAST(52.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (19, CAST(N'2024-11-15T20:43:46.140' AS DateTime), CAST(84.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (20, CAST(N'2024-12-31T20:43:46.140' AS DateTime), CAST(87.00 AS Decimal(18, 2)), N'Onaylandı', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (21, CAST(N'2024-12-27T20:47:45.033' AS DateTime), CAST(33.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (22, CAST(N'2024-12-22T20:47:45.047' AS DateTime), CAST(56.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (23, CAST(N'2024-12-24T20:47:45.047' AS DateTime), CAST(37.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (24, CAST(N'2024-12-25T20:47:45.047' AS DateTime), CAST(77.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (25, CAST(N'2024-12-06T20:47:45.047' AS DateTime), CAST(97.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (26, CAST(N'2024-12-09T20:47:45.047' AS DateTime), CAST(93.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (27, CAST(N'2024-11-28T20:47:45.047' AS DateTime), CAST(58.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (28, CAST(N'2024-11-15T20:47:45.047' AS DateTime), CAST(39.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (29, CAST(N'2024-11-19T20:47:45.047' AS DateTime), CAST(94.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (30, CAST(N'2024-12-22T20:47:45.047' AS DateTime), CAST(22.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (31, CAST(N'2024-12-01T20:48:04.823' AS DateTime), CAST(50.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (32, CAST(N'2024-11-21T20:48:04.827' AS DateTime), CAST(51.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (33, CAST(N'2024-12-31T20:48:04.827' AS DateTime), CAST(53.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (34, CAST(N'2024-12-18T20:48:04.827' AS DateTime), CAST(17.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (35, CAST(N'2024-12-07T20:48:04.827' AS DateTime), CAST(97.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (36, CAST(N'2024-12-04T20:48:04.827' AS DateTime), CAST(97.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (37, CAST(N'2024-12-26T20:48:04.827' AS DateTime), CAST(64.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (38, CAST(N'2025-01-04T20:48:04.827' AS DateTime), CAST(72.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (39, CAST(N'2024-12-31T20:48:04.827' AS DateTime), CAST(25.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (40, CAST(N'2024-11-20T20:48:04.827' AS DateTime), CAST(65.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (41, CAST(N'2024-12-18T01:21:37.897' AS DateTime), CAST(63.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (42, CAST(N'2024-12-01T01:21:37.927' AS DateTime), CAST(100.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (43, CAST(N'2024-12-11T01:21:37.927' AS DateTime), CAST(70.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (44, CAST(N'2024-12-16T01:21:37.927' AS DateTime), CAST(100.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (45, CAST(N'2024-12-30T01:21:37.930' AS DateTime), CAST(12.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (46, CAST(N'2024-12-08T01:21:37.930' AS DateTime), CAST(90.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (47, CAST(N'2024-11-27T01:21:37.930' AS DateTime), CAST(78.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (48, CAST(N'2024-11-16T01:21:37.930' AS DateTime), CAST(97.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (49, CAST(N'2024-11-23T01:21:37.930' AS DateTime), CAST(86.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (50, CAST(N'2024-12-25T01:21:37.930' AS DateTime), CAST(65.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (51, CAST(N'2024-12-24T19:27:13.920' AS DateTime), CAST(41.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (52, CAST(N'2025-01-02T19:27:13.953' AS DateTime), CAST(76.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (53, CAST(N'2024-12-09T19:27:13.953' AS DateTime), CAST(11.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (54, CAST(N'2024-12-15T19:27:13.953' AS DateTime), CAST(35.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (55, CAST(N'2025-01-01T19:27:13.953' AS DateTime), CAST(27.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (56, CAST(N'2024-12-03T19:27:13.953' AS DateTime), CAST(23.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (57, CAST(N'2024-11-21T19:27:13.953' AS DateTime), CAST(56.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (58, CAST(N'2024-11-25T19:27:13.953' AS DateTime), CAST(98.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (59, CAST(N'2025-01-01T19:27:13.957' AS DateTime), CAST(90.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (60, CAST(N'2025-01-13T19:27:13.957' AS DateTime), CAST(48.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (61, CAST(N'2024-12-31T19:33:27.407' AS DateTime), CAST(70.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (62, CAST(N'2024-12-30T19:33:27.420' AS DateTime), CAST(88.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (63, CAST(N'2024-11-21T19:33:27.420' AS DateTime), CAST(68.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (64, CAST(N'2024-12-28T19:33:27.420' AS DateTime), CAST(61.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (65, CAST(N'2024-12-08T19:33:27.423' AS DateTime), CAST(58.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (66, CAST(N'2025-01-18T19:33:27.423' AS DateTime), CAST(20.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (67, CAST(N'2024-12-03T19:33:27.423' AS DateTime), CAST(65.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (68, CAST(N'2024-12-18T19:33:27.423' AS DateTime), CAST(18.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (69, CAST(N'2024-12-22T19:33:27.423' AS DateTime), CAST(42.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (70, CAST(N'2024-12-20T19:33:27.423' AS DateTime), CAST(70.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (72, CAST(N'2024-12-24T00:00:00.000' AS DateTime), CAST(50.00 AS Decimal(18, 2)), N'Onay Bekliyor', 7)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (73, CAST(N'2024-11-25T00:00:00.000' AS DateTime), CAST(30.00 AS Decimal(18, 2)), N'Onaylandı', 8)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (74, CAST(N'2024-12-27T00:00:00.000' AS DateTime), CAST(40.00 AS Decimal(18, 2)), N'Reddedildi', 9)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (75, CAST(N'2025-01-07T00:00:00.000' AS DateTime), CAST(60.00 AS Decimal(18, 2)), N'Onaylandı', 10)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (76, CAST(N'2025-01-06T00:00:00.000' AS DateTime), CAST(20.00 AS Decimal(18, 2)), N'Reddedildi', 11)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (77, CAST(N'2024-12-15T20:18:00.953' AS DateTime), CAST(16.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (78, CAST(N'2025-01-10T20:18:00.967' AS DateTime), CAST(49.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (79, CAST(N'2025-01-09T20:18:00.967' AS DateTime), CAST(13.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (80, CAST(N'2024-12-25T20:18:00.967' AS DateTime), CAST(89.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (81, CAST(N'2024-12-29T20:18:00.967' AS DateTime), CAST(95.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (82, CAST(N'2024-11-24T20:18:00.970' AS DateTime), CAST(96.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (83, CAST(N'2024-12-14T20:18:00.970' AS DateTime), CAST(10.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (84, CAST(N'2024-12-09T20:18:00.970' AS DateTime), CAST(90.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (85, CAST(N'2024-12-09T20:18:00.970' AS DateTime), CAST(38.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (86, CAST(N'2025-01-04T20:18:00.970' AS DateTime), CAST(66.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (87, CAST(N'2025-01-26T00:00:19.333' AS DateTime), CAST(38.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (88, CAST(N'2024-12-21T00:00:19.347' AS DateTime), CAST(87.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (89, CAST(N'2025-01-12T00:00:19.347' AS DateTime), CAST(79.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (90, CAST(N'2025-01-04T00:00:19.347' AS DateTime), CAST(21.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (91, CAST(N'2024-12-13T00:00:19.347' AS DateTime), CAST(39.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (92, CAST(N'2025-01-17T00:00:19.347' AS DateTime), CAST(72.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (93, CAST(N'2025-01-08T00:00:19.350' AS DateTime), CAST(29.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (94, CAST(N'2024-12-27T00:00:19.350' AS DateTime), CAST(12.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (95, CAST(N'2024-12-04T00:00:19.350' AS DateTime), CAST(18.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (96, CAST(N'2024-12-05T00:00:19.350' AS DateTime), CAST(51.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (97, CAST(N'2024-12-12T00:00:25.523' AS DateTime), CAST(20.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (98, CAST(N'2024-12-09T00:00:25.523' AS DateTime), CAST(77.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (99, CAST(N'2025-01-20T00:00:25.523' AS DateTime), CAST(91.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (100, CAST(N'2025-01-04T00:00:25.523' AS DateTime), CAST(32.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+GO
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (101, CAST(N'2025-01-26T00:00:25.523' AS DateTime), CAST(68.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (102, CAST(N'2024-12-24T00:00:25.523' AS DateTime), CAST(90.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (103, CAST(N'2025-01-17T00:00:25.527' AS DateTime), CAST(64.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (104, CAST(N'2024-12-16T00:00:25.527' AS DateTime), CAST(40.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (105, CAST(N'2024-12-09T00:00:25.527' AS DateTime), CAST(39.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (106, CAST(N'2025-01-26T00:00:25.527' AS DateTime), CAST(67.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (107, CAST(N'2025-01-16T13:28:28.613' AS DateTime), CAST(57.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (108, CAST(N'2024-12-13T13:28:28.630' AS DateTime), CAST(34.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (109, CAST(N'2024-12-05T13:28:28.630' AS DateTime), CAST(88.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (110, CAST(N'2025-01-18T13:28:28.633' AS DateTime), CAST(98.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (111, CAST(N'2024-12-26T13:28:28.633' AS DateTime), CAST(73.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (112, CAST(N'2024-12-26T13:28:28.633' AS DateTime), CAST(94.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (113, CAST(N'2024-12-30T13:28:28.633' AS DateTime), CAST(59.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (114, CAST(N'2024-12-17T13:28:28.633' AS DateTime), CAST(77.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (115, CAST(N'2024-12-19T13:28:28.633' AS DateTime), CAST(13.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (116, CAST(N'2024-12-08T13:28:28.633' AS DateTime), CAST(10.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (117, CAST(N'2024-12-03T14:59:35.523' AS DateTime), CAST(77.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (118, CAST(N'2024-12-09T14:59:35.537' AS DateTime), CAST(76.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (119, CAST(N'2024-12-24T14:59:35.537' AS DateTime), CAST(20.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (120, CAST(N'2025-01-12T14:59:35.537' AS DateTime), CAST(52.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (121, CAST(N'2024-12-16T14:59:35.540' AS DateTime), CAST(16.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (122, CAST(N'2024-12-06T14:59:35.540' AS DateTime), CAST(17.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (123, CAST(N'2024-12-04T14:59:35.540' AS DateTime), CAST(24.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (124, CAST(N'2025-01-16T14:59:35.540' AS DateTime), CAST(69.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (125, CAST(N'2025-01-16T14:59:35.540' AS DateTime), CAST(46.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (126, CAST(N'2024-12-03T14:59:35.540' AS DateTime), CAST(15.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (127, CAST(N'2025-01-27T15:00:33.237' AS DateTime), CAST(30.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (128, CAST(N'2025-01-12T15:00:33.250' AS DateTime), CAST(24.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (129, CAST(N'2024-12-13T15:00:33.253' AS DateTime), CAST(23.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (130, CAST(N'2025-01-12T15:00:33.253' AS DateTime), CAST(53.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (131, CAST(N'2025-01-14T15:00:33.253' AS DateTime), CAST(67.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (132, CAST(N'2025-01-08T15:00:33.253' AS DateTime), CAST(82.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (133, CAST(N'2024-12-26T15:00:33.253' AS DateTime), CAST(19.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (134, CAST(N'2025-01-06T15:00:33.253' AS DateTime), CAST(71.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (135, CAST(N'2025-01-22T15:00:33.253' AS DateTime), CAST(25.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (136, CAST(N'2025-01-31T15:00:33.257' AS DateTime), CAST(91.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (137, CAST(N'2024-12-20T18:08:56.570' AS DateTime), CAST(39.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (138, CAST(N'2025-01-30T18:08:56.600' AS DateTime), CAST(81.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (139, CAST(N'2024-12-25T18:08:56.600' AS DateTime), CAST(100.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (140, CAST(N'2024-12-19T18:08:56.600' AS DateTime), CAST(12.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (141, CAST(N'2025-01-17T18:08:56.600' AS DateTime), CAST(100.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (142, CAST(N'2024-12-07T18:08:56.603' AS DateTime), CAST(23.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (143, CAST(N'2025-01-08T18:08:56.603' AS DateTime), CAST(53.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (144, CAST(N'2025-01-18T18:08:56.603' AS DateTime), CAST(51.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (145, CAST(N'2025-01-11T18:08:56.603' AS DateTime), CAST(50.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (146, CAST(N'2025-01-14T18:08:56.603' AS DateTime), CAST(70.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (147, CAST(N'2025-01-31T18:20:03.323' AS DateTime), CAST(93.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (148, CAST(N'2024-12-12T18:20:03.327' AS DateTime), CAST(38.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (149, CAST(N'2024-12-06T18:20:03.327' AS DateTime), CAST(89.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (150, CAST(N'2025-01-31T18:20:03.327' AS DateTime), CAST(77.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (151, CAST(N'2024-12-19T18:20:03.327' AS DateTime), CAST(17.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (152, CAST(N'2024-12-29T18:20:03.327' AS DateTime), CAST(69.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (153, CAST(N'2025-01-12T18:20:03.327' AS DateTime), CAST(49.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (154, CAST(N'2025-01-10T18:20:03.327' AS DateTime), CAST(56.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (155, CAST(N'2024-12-11T18:20:03.330' AS DateTime), CAST(41.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+INSERT [dbo].[YakıtTalep] ([Id], [TalepTarihi], [Miktar], [Durum], [SubeID]) VALUES (156, CAST(N'2024-12-10T18:20:03.330' AS DateTime), CAST(96.00 AS Decimal(18, 2)), N'Onay Bekliyor', NULL)
+SET IDENTITY_INSERT [dbo].[YakıtTalep] OFF
+GO
+INSERT [dbo].[YakitStok] ([SubeID], [YakitID], [Miktar]) VALUES (7, 1, CAST(1000.00 AS Decimal(18, 2)))
+INSERT [dbo].[YakitStok] ([SubeID], [YakitID], [Miktar]) VALUES (8, 1, CAST(800.00 AS Decimal(18, 2)))
+INSERT [dbo].[YakitStok] ([SubeID], [YakitID], [Miktar]) VALUES (9, 1, CAST(1200.00 AS Decimal(18, 2)))
+INSERT [dbo].[YakitStok] ([SubeID], [YakitID], [Miktar]) VALUES (10, 1, CAST(700.00 AS Decimal(18, 2)))
+INSERT [dbo].[YakitStok] ([SubeID], [YakitID], [Miktar]) VALUES (11, 1, CAST(900.00 AS Decimal(18, 2)))
+GO
+ALTER TABLE [dbo].[Calisanlar]  WITH CHECK ADD FOREIGN KEY([SubeID])
+REFERENCES [dbo].[Subeler] ([SubeID])
+GO
+ALTER TABLE [dbo].[Islemler]  WITH CHECK ADD FOREIGN KEY([SubeID])
+REFERENCES [dbo].[Subeler] ([SubeID])
+GO
+ALTER TABLE [dbo].[Islemler]  WITH CHECK ADD FOREIGN KEY([YakitID])
+REFERENCES [dbo].[Yakitlar] ([YakitID])
+GO
+ALTER TABLE [dbo].[Kullanici]  WITH CHECK ADD FOREIGN KEY([SubeID])
+REFERENCES [dbo].[Subeler] ([SubeID])
+GO
+ALTER TABLE [dbo].[YakıtTalep]  WITH CHECK ADD  CONSTRAINT [FK_YakitTalep_Subeler] FOREIGN KEY([SubeID])
+REFERENCES [dbo].[Subeler] ([SubeID])
+GO
+ALTER TABLE [dbo].[YakıtTalep] CHECK CONSTRAINT [FK_YakitTalep_Subeler]
+GO
+ALTER TABLE [dbo].[Yakitlar]  WITH CHECK ADD FOREIGN KEY([SubeID])
+REFERENCES [dbo].[Subeler] ([SubeID])
+GO
+USE [master]
+GO
+ALTER DATABASE [PetrolOtomasyon] SET  READ_WRITE 
+GO
